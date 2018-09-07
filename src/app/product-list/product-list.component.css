@@ -1,0 +1,14 @@
+.panelList{
+    background: #D3D3D3;
+    color:#000;
+    border-radius:10px;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+
+}
+
+
+.product_view .modal-dialog{max-width: 800px; width: 100%;}
+.pre-cost{text-decoration: line-through; color: #a5a5a5;}
+.space-ten{padding: 10px 0;}
