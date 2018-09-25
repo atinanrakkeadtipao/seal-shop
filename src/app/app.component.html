@@ -1,42 +1,78 @@
 
-    <nav class="navbar navbar-inverse">
+     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <div class="navbar-header">
+          <div class="collapse navbar-collapse">
             <a class="navbar-brand" routerLink="/">{{ title }}</a>
+            <ul class="navbar-nav navbar-left">
+              <li class="nav-item"><a routerLink="about">About</a></li>
+              <li><a routerLink="contact">Contact</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"> Type <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a routerLink="/" [queryParams]="{category: 'รองเท้า'}" class="atoggle">รองเท้า</a></li>
+                  <li><a routerLink="/" [queryParams]="{category: 'เสื้อ'}" class="atoggle">เสื้อ</a></li>
+                  <li><a routerLink="/" [queryParams]="{category: 'กระเป๋า'}" class="atoggle">กระเป๋า</a></li>
+                </ul>
+              </li>
+            </ul> 
           </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a routerLink="/about/atinan">About</a></li>
-            <li><a routerLink="/about/contact">Contact</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"> Type <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a routerLink="/" [queryParams]="{category: 'รองเท้า'}">รองเท้า</a></li>
-                <li><a routerLink="/" [queryParams]="{category: 'เสื้อ'}">เสื้อ</a></li>
-                <li><a routerLink="/" [queryParams]="{category: 'กระเป๋า'}">กระเป๋า</a></li>
-              </ul>
-            </li>
-          </ul>
-    
-          <!-- <form class="navbar-form navbar-left" action="/action_page.php">
-            <div class="input-group">
+            
+           <!-- <form class="navbar-form navbar-left" action="/action_page.php"> -->
+            <!-- <div class="input-group">
               <input type="text" class="form-control" placeholder="Search" name="search">
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit">
                   <i class="glyphicon glyphicon-search"></i>
                 </button>
               </div>
-            </div>
-          </form> -->
-
-          <ul class="nav navbar-nav navbar-right" >
-            <li ><a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shopping Cart</a></li>
+            </div> -->
+          <!-- </form>  -->
+ 
+          <ul class="navbar-nav" >
+            <li ><a routerLink="/cart"><span class="fas fa-shopping-cart" aria-hidden="true"></span> Shopping Cart</a></li>
             
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="#"><span class="fas fa-sign-in-alt"></span> Login</a></li>
           </ul>
 
           
 
         </div>
-    </nav>
+    </nav> 
+<!-- 
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" routerLink ="/">{{ title }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="fa fa-home"></i>
+              Home
+              <span class="sr-only">(current)</span>
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-envelope-o">
+                <span class="badge badge-danger">11</span>
+              </i>
+              Messages
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">
+              <i class="fa fa-envelope-o">
+                <span class="badge badge-danger">11</span>
+              </i>
+              Disabled
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav> -->
     <br>
 
     <router-outlet></router-outlet>

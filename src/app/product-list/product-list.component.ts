@@ -13,28 +13,37 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   @Input() listItem: Item[]
-  
+
   constructor(productService: ProductsService,
     private cartService: CartService,
-    private router: ActivatedRoute) { 
-      this.router.queryParamMap.subscribe({
-        next: (queryParamMap: ParamMap) => {
-          if(queryParamMap.has("category")) {
+    private router: ActivatedRoute) {
 
-            const category = queryParamMap.get("category");
+    productService.getAll().subscribe({
+      next: (products) => {
 
-            this.listItem = productService.itemList.filter((item) => {
-              return item.category ==  category
-            });
-            
+        this.router.queryParamMap.subscribe({
+          next: (queryParamMap: ParamMap) => {
+
+            if (queryParamMap.has("category")) {
+
+              const category = queryParamMap.get("category");
+
+              this.listItem = products.filter((item) => {
+                return item.category == category
+              });
+
+            }
+            else {
+              this.listItem = products;
+            }
+
           }
-          else{
-            this.listItem = productService.itemList;
-          }
-        }
 
 
-      });
+        });
+      }
+    })
+
 
     // this.listItem = productService.itemList;
   }
@@ -43,7 +52,7 @@ export class ProductListComponent implements OnInit {
     console.log("ProductListCom", "ngOnInit");
   }
 
-  addToCart(item: Item){
+  addToCart(item: Item) {
     this.cartService.addItem(item);
   }
 

@@ -35,3 +35,7 @@
 .ng-invalid {
 	border-color: red;
 }
+
+img {
+	width: 100%;
+}
